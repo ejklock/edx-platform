@@ -131,6 +131,8 @@ class VerticalBlock(SequenceFields, XModuleFields, StudioEditableBlock, XmlParse
         """
         Renders the student view of the block in the LMS.
         """
+#        print(list(sorted(dir(self))))
+#        print(self.parent().okay_to_show_descendants())
         return self._student_or_public_view(context, STUDENT_VIEW)
 
     def public_view(self, context):
