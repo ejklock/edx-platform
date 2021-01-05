@@ -236,3 +236,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_HEADERS = corsheaders_default_headers + (
     'use-jwt-cookie',
 )
+
+################### Special Exams (Proctoring) ###################
+FEATURES['ENABLE_SPECIAL_EXAMS'] = True
