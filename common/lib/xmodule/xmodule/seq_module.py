@@ -578,7 +578,13 @@ class SequenceModule(SequenceFields, ProctoringFields, XModule):
         can't finish" reasoning of doing the full traversal does not apply.
 
         Returns:
-            True if it's okay for us to show descendants, False if it is not.
+            True if this sequence and its descendants are gated by what are
+                currently sequence-level checks.
+            False if the sequence is and its decendants are not gated.
+
+            Note that this gating logic is only a part of the equation when it
+            comes to determining whether a student is allowed to access this,
+            with other checks being done in has_access calls.
         """
         if self.runtime.user_is_staff:
             return False
