@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Remote Attach to LMS Container",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "debugStdLib": true,
+            "pathMappings": [
+                {
+                    "localRoot":"/openedx/edx-platform",
+                    "remoteRoot": "/openedx/edx-platform"
+                }
+            ]
+        }
+    ]
+}

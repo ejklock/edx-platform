@@ -1,0 +1,11 @@
+{
+    "folders": [
+        {
+            "path": "/openedx/edx-platform"
+        }
+    ],
+    "settings": {
+        "python.pythonPath": "/openedx/venv/bin/python",
+        "python.linting.pylintEnabled": true
+    }
+}
