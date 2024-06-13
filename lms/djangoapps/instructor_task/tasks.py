@@ -30,18 +30,18 @@ from edx_django_utils.monitoring import set_code_owner_attribute
 from lms.djangoapps.bulk_email.tasks import perform_delegate_email_batches
 from lms.djangoapps.instructor_task.tasks_base import BaseInstructorTask
 from lms.djangoapps.instructor_task.tasks_helper.certs import generate_students_certificates
+from lms.djangoapps.instructor_task.tasks_helper.custom_course_grade_report import CustomCourseGradeReport
 from lms.djangoapps.instructor_task.tasks_helper.enrollments import upload_may_enroll_csv, upload_students_csv
 from lms.djangoapps.instructor_task.tasks_helper.grades import CourseGradeReport, ProblemGradeReport, ProblemResponses
 from lms.djangoapps.instructor_task.tasks_helper.misc import (
     cohort_students_and_upload,
+    generate_anonymous_ids,
     upload_course_survey_report,
     upload_ora2_data,
     upload_ora2_submission_files,
     upload_ora2_summary,
-    upload_proctored_exam_results_report,
-    generate_anonymous_ids
+    upload_proctored_exam_results_report
 )
-
 from lms.djangoapps.instructor_task.tasks_helper.module_state import (
     delete_problem_module_state,
     override_score_module_state,
@@ -193,7 +193,7 @@ def calculate_grades_csv(entry_id, xblock_instance_args):
         xblock_instance_args.get('task_id'), entry_id, action_name
     )
 
-    task_fn = partial(CourseGradeReport.generate, xblock_instance_args)
+    task_fn = partial(CustomCourseGradeReport.generate, xblock_instance_args)
     return run_main_task(entry_id, task_fn, action_name)
 
 
